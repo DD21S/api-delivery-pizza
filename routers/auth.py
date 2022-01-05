@@ -15,10 +15,6 @@ auth_router = APIRouter(
     tags=["auth"] 
 )
 
-@auth_router.get('/')
-async def auth(current_user: UserModel = Depends(authentication.get_current_user)):
-    return {'message': 'hello world'}
-
 @auth_router.post(
     '/signup', 
     response_model=UserModel,

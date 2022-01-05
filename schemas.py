@@ -2,6 +2,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 class UserBase(BaseModel):
+    id: Optional[int]
     username: str
     email: str
 
@@ -18,7 +19,6 @@ class UserCreate(UserBase):
         }
 
 class UserModel(UserBase):
-    id: int
     is_staff: bool
     is_active: bool
 
@@ -31,6 +31,7 @@ class OrderModel(BaseModel):
     quantity: int
     status: Optional[str] = "PENDING"
     pizza_size: Optional[str] = "SMALL"
+    user_id: Optional[int]
 
     class Config:
         orm_mode = True
