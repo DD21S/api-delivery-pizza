@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from routers.auth import auth_router
 from routers.orders import orders_router
+from routers.admin import admin_router
 
 from database import engine
 import models
@@ -12,3 +13,4 @@ app = FastAPI()
 
 app.include_router(auth_router)
 app.include_router(orders_router)
+app.include_router(admin_router)
